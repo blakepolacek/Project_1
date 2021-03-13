@@ -1,0 +1,9 @@
+
+#!/bin/bash
+cd /Desktop/homework/Lucky_Duck_Investigations/Roulette_Loss_Investigation/Dealer_Analysis
+sed s/'05:00:00 AM'/sus_0310_5am/ 0310_Dealer_schedule > 0310_times.txt
+sed s/'08:00:00 AM'/sus_0310_8am/ 0310_Dealer_schedule >> 0310_times.txt
+sed s/'02:00:00 PM'/sus_0310_2pm/ 0310_Dealer_schedule >> 0310_times.txt
+sed s/'08:00:00 PM'/sus_0310_8pm/ 0310_Dealer_schedule >> 0310_times.txt
+sed s/'11:00:00 PM'/sus_0310_11pm/ 0310_Dealer_schedule >> 0310_times.txt
+grep sustimes 0310_times.txt > Dealers_working_during_losses_0310
