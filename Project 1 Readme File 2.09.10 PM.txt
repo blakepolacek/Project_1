@@ -8,6 +8,7 @@ The files in this repository were used to configure the network depicted below.
 
 ![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
 
+https://drive.google.com/file/d/1By3v0q3TTEv8lMHTD7hvV0GmIapLNoqi/view?usp=sharing
 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook (.yml) file may be used to install only certain pieces of it, such as Filebeat.
@@ -105,7 +106,8 @@ The playbook implements the following tasks:
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 Screen Shot 2021-03-04 at 9.13.34 PM
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
-  
+
+https://drive.google.com/file/d/1BVV1Vin3RZQYlaF6TCjaO2DSV9cij7D6/view?usp=sharing  
 
 
 
@@ -252,4 +254,5 @@ ansible-playbook /etc/ansible/roles/metricbeat-playbook.yml
       name: metricbeat
       enabled: yes
       
+      Kibana Website
       https://drive.google.com/file/d/16161EUWsLFaWLvNRgo6KjUpglq3_VcQC/view?usp=sharing
