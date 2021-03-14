@@ -1,5 +1,3 @@
-## just noticed this uploaded an older version. fixing now. 
-
 ## Automated ELK Stack Deployment
 
 
